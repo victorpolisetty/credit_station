@@ -21,7 +21,7 @@
 
 from typing import Set, Type
 
-from packages.victorpolisetty.skills.stock_data_api_abci.behaviours import StockDataApiRoundBehaviour
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.behaviours import CreditScoreAggregationRoundBehaviour
 from packages.victorpolisetty.skills.credit_score_abci.composition import CreditScoreSkillAbciApp
 from packages.valory.skills.abstract_round_abci.behaviours import (
     AbstractRoundBehaviour,
@@ -53,6 +53,6 @@ class CreditScoreConsensusBehaviour(AbstractRoundBehaviour):
         *ResetPauseABCIConsensusBehaviour.behaviours,
         *TransactionSettlementRoundBehaviour.behaviours,
         *TerminationAbciBehaviours.behaviours,
-        *StockDataApiRoundBehaviour.behaviours,
+        *CreditScoreAggregationRoundBehaviour.behaviours,
     }
     background_behaviours_cls = {BackgroundBehaviour}

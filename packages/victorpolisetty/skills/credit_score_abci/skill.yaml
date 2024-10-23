@@ -7,12 +7,12 @@ license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeidnrgzby5k32oh43eeslasksgzvh66eidydt444k62n5yoy5rwlam
-  behaviours.py: bafybeicdw2bicnotxbugmwglcq6m77wo4tu7pvjk2z4rdldlgywkrea7le
-  composition.py: bafybeiccfdmtwe2yirkxv2grb2nzoflfqoy4pgqd7yevd75kdriqrjjx7i
+  behaviours.py: bafybeia277usi7yslo4oxmxmxbhnv4lgfuddv66mshouzwtwkuohumf6c4
+  composition.py: bafybeibj7w33c522entsqjwxkl35xknq7in3fizk3bzyrwmr7fmpxudq5q
   dialogues.py: bafybeict3vkqfezgys6i6z54b26as62upcet2ju3un5y7cqlxfnr75lgjq
   fsm_specification.yaml: bafybeifhdhm2tx4nzlwprof5sysl6sdzuygg4pncsrkggml26y22vskvpq
-  handlers.py: bafybeicusw63kyimapxlheed7ajhh2alflxu3lklk42gxnmnxtgs37upme
-  models.py: bafybeicdgqyhsgm4iqltalii4y5hwcelgizrcl7ajyqndcxatuxxfzlvim
+  handlers.py: bafybeic5fxdhzsdtjh2nzyqrztvah7m4zsnpucy2virvpvl7mg5guahpua
+  models.py: bafybeiek5valuytasarbpxnqnslxmk6aj5q2k55b22m3lfzulnxztjx4a4
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -22,7 +22,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeiek7zcsxbucjwzgqfftafhfrocvc7q4yxllh2q44jeemsjxg3rcfm
 - valory/reset_pause_abci:0.1.0:bafybeidw4mbx3os3hmv7ley7b3g3gja7ydpitr7mxbjpwzxin2mzyt5yam
 - valory/termination_abci:0.1.0:bafybeihq6qtbwt6i53ayqym63vhjexkcppy26gguzhhjqywfmiuqghvv44
-- victorpolisetty/credit_score_aggregation_abci:0.1.0:bafybeidso7sdjv7iza5pnwzmeqb25pbk5foakflvlvn2xuqnhf7lyuvfxu
+- victorpolisetty/credit_score_aggregation_abci:0.1.0:bafybeieg63aasezcppijkponeljij5rawcqa7jite6hwfjxxjp7ljs4gau
 - valory/transaction_settlement_abci:0.1.0:bafybeigtzlk4uakmd54rxnznorcrstsr52kta474lgrnvx5ovr546vj7sq
 behaviours:
   main:

@@ -19,9 +19,9 @@
 
 """This module contains the shared state for the abci skill of CreditScoreSkillAbciApp."""
 
-from packages.victorpolisetty.skills.stock_data_api_abci.models import Params as StockDataApiParams
-from packages.victorpolisetty.skills.stock_data_api_abci.models import SharedState as BaseSharedState
-from packages.victorpolisetty.skills.stock_data_api_abci.rounds import Event as HelloEvent
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import Params as StockDataApiParams
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import SharedState as BaseSharedState
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.rounds import Event as HelloEvent
 from packages.victorpolisetty.skills.credit_score_abci.composition import CreditScoreSkillAbciApp
 from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,

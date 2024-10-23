@@ -35,10 +35,17 @@ autonomy generate-key ethereum -n 2 -> Create 2 new agent addresses and private 
 - Update all_participants in both the .env and agents/credit_score_agent/aea-config.yaml files based on if you want to an agent (1 address) or service (multiple addresses) to run
 ```
 
+## Troubleshooting
+
+```bash
+chmod +x ./run_agent.sh -> Use this command if geting the error 'zsh: permission denied: ./run_agent.sh'
+```
+
 ## How to run agent
 
 ```bash
-./run_agent.sh
+./run_agent.sh (seperate terminals)
+make tm (seperate terminals)
 ```
 
 ## How to run service
