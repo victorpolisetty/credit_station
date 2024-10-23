@@ -155,7 +155,7 @@ models:
       service_id: credit_score
       service_registry_address: ${str:null}
       setup:
-        all_participants: ${list:["0x5a3151e7E265445d355697419DCEAfaE6dc67048"]}
+        all_participants: ${list:["0xD43d4Af7E005823575252F12344272f845d326dC"]}
         safe_contract_address: ${str:0x0000000000000000000000000000000000000000}
         consensus_threshold: ${int:null}
       share_tm_config_on_startup: ${bool:false}
