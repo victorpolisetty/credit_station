@@ -6,14 +6,14 @@ description: A credit score aggregation abci skill.
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeigr3e3tnk4ptncydqkfahfmrsjpkrffaypmgyu4f2ndi5qnno67ye
-  behaviours.py: bafybeidxoiyrme43jxocpbk2x2qxwthwbtue422dlzh4nd5ljde6pkmswy
-  dialogues.py: bafybeiec63mrcwz5l2wnslupq7a3qb7qwjexcyjcvy6gwefw7zpizgclla
-  fsm_specification.yaml: bafybeibu6vo5xf7jdxxoet7t535e6axzcy2qotprwytyaa75bow32d27hm
-  handlers.py: bafybeib64g2pqnahj26azbz3hrltkqtgk5ihgwf4qkfad7nmwbtwdbcwue
-  models.py: bafybeicr2szi6vcmj2os3zx6xthq67afyjr7nue3yweglp2otkl5ed2uci
-  payloads.py: bafybeic6b6vut36gcjs6ygi5743swthhthphrhx64ie7ck4d5xdnlrrb3y
-  rounds.py: bafybeidjxfkuus4jyea2nzcmxoy4iozlcknvo6q7wmjip33wspyutgid7e
+  __init__.py: bafybeihbipiqxx4c5msglzwgvzszwqgmn2gnxjp4zwmstuqb2smde5q6om
+  behaviours.py: bafybeic5tpcyud7p57ajpsopbi2f2bgu3lgnsrvizr4h5owfeebjsfod5u
+  dialogues.py: bafybeiclt3h6e3lfhi2sdsf7gdhgx36q3racic3n2pnc7ywercs54wwiaq
+  fsm_specification.yaml: bafybeiefy37ylqq3jpxteuncnxnzdkwg7livemmvekecefo2kkd5tzsukq
+  handlers.py: bafybeigreqduklom3wylnucbrsgus6dmgfdztbk5z675uwhhd7me4bt6ci
+  models.py: bafybeidbvien6s42y5xobzi3va64naj5z55g3ljpguogwscbvyk5gb4mbm
+  payloads.py: bafybeia5vmj7g6yq2dcdb2vrpk6cflssurkxfcqo43oaowrp7crbefndxy
+  rounds.py: bafybeidy5yeujhokl6edqc4hdx3m3m5knyaohzpj5asmop4vkkt4tagrau
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -85,7 +85,7 @@ models:
             max_bytes: '1048576'
           validator:
             pub_key_types:
-              - ed25519
+            - ed25519
           version: {}
         genesis_time: '2022-05-20T16:00:21.735122717Z'
         voting_power: '10'
@@ -107,7 +107,7 @@ models:
       service_registry_address: null
       setup:
         all_participants:
-          - '0x0000000000000000000000000000000000000000'
+        - '0x0000000000000000000000000000000000000000'
         consensus_threshold: null
         safe_contract_address: '0x0000000000000000000000000000000000000000'
       share_tm_config_on_startup: false

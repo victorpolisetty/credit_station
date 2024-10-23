@@ -6,13 +6,13 @@ description: The chained abci for the credit_score application.
 license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
-  __init__.py: bafybeifgcv6yxiptwtim5kmpg3kmfwctkz7tatqw2vtffpdy4wsmymzkzu
-  behaviours.py: bafybeidzvfb2a5cm42hl6yyrahdrg6tmlft7lglfgg7o22vpbc2nbwchje
-  composition.py: bafybeiebjja6mvyfblv6thwf2ezyoyl3mqjjzcreli6m635ckhy4ew2ega
+  __init__.py: bafybeidnrgzby5k32oh43eeslasksgzvh66eidydt444k62n5yoy5rwlam
+  behaviours.py: bafybeicdw2bicnotxbugmwglcq6m77wo4tu7pvjk2z4rdldlgywkrea7le
+  composition.py: bafybeiccfdmtwe2yirkxv2grb2nzoflfqoy4pgqd7yevd75kdriqrjjx7i
   dialogues.py: bafybeict3vkqfezgys6i6z54b26as62upcet2ju3un5y7cqlxfnr75lgjq
-  fsm_specification.yaml: bafybeidlnwygr3dn56f7ud7boonadopfpcv4cp7pz76s2s76gijqwzzxhm
-  handlers.py: bafybeihd3ahdzqql5yw5a54yw6rtjpzimb5ldavo2lc47dlnvsvw2tlkui
-  models.py: bafybeiaketfyl2y2ne5jb7x63edrfo55h4ftzyjctwy2rrvrm63ozw2ccq
+  fsm_specification.yaml: bafybeifhdhm2tx4nzlwprof5sysl6sdzuygg4pncsrkggml26y22vskvpq
+  handlers.py: bafybeicusw63kyimapxlheed7ajhh2alflxu3lklk42gxnmnxtgs37upme
+  models.py: bafybeicdgqyhsgm4iqltalii4y5hwcelgizrcl7ajyqndcxatuxxfzlvim
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -22,7 +22,7 @@ skills:
 - valory/registration_abci:0.1.0:bafybeiek7zcsxbucjwzgqfftafhfrocvc7q4yxllh2q44jeemsjxg3rcfm
 - valory/reset_pause_abci:0.1.0:bafybeidw4mbx3os3hmv7ley7b3g3gja7ydpitr7mxbjpwzxin2mzyt5yam
 - valory/termination_abci:0.1.0:bafybeihq6qtbwt6i53ayqym63vhjexkcppy26gguzhhjqywfmiuqghvv44
-- victorpolisetty/credit_score_aggregation_abci:0.1.0:bafybeidiexjtcc3twk3lfdv2sdlvfv4fbch4djzjc4sfeznjy6bx5iw7d4
+- victorpolisetty/credit_score_aggregation_abci:0.1.0:bafybeidso7sdjv7iza5pnwzmeqb25pbk5foakflvlvn2xuqnhf7lyuvfxu
 - valory/transaction_settlement_abci:0.1.0:bafybeigtzlk4uakmd54rxnznorcrstsr52kta474lgrnvx5ovr546vj7sq
 behaviours:
   main:
@@ -89,7 +89,7 @@ models:
             max_bytes: '1048576'
           validator:
             pub_key_types:
-              - ed25519
+            - ed25519
           version: {}
         voting_power: '10'
       keeper_timeout: 30.0

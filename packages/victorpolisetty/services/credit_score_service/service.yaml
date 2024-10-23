@@ -4,10 +4,9 @@ version: 0.1.0
 description: A credit score agent service.
 aea_version: '>=1.0.0, <2.0.0'
 license: Apache-2.0
-fingerprint:
-  README.md: bafybeicxq7czrb2v2mzpvytqc53eawd6kwe7vq2lh5kn63hhxrj3fqodne
+fingerprint: {}
 fingerprint_ignore_patterns: []
-agent: victorpolisetty/credit_score_agent:0.1.0:bafybeicn4yxzrnh57ged5p7hdiuot7yyfnwmsv4kalutvv7m4k3zya5ije
+agent: victorpolisetty/credit_score_agent:0.1.0:bafybeia5si2iafoqi4h5ovdmmlcsp76tucv5zonjfzqoztfx6rbkx6kwv4
 number_of_agents: 1
 deployment:
   agent:
@@ -38,7 +37,7 @@ extra:
             max_bytes: '1048576'
           validator:
             pub_key_types:
-              - ed25519
+            - ed25519
           version: {}
         voting_power: '10'
 0:
@@ -105,13 +104,13 @@ public_id: valory/p2p_libp2p_client:0.1.0
 type: connection
 config:
   nodes:
-    - uri: ${ACN_URI:str:acn.staging.autonolas.tech:9005}
-      public_key: ${ACN_NODE_PUBLIC_KEY:str:02d3a830c9d6ea1ae91936951430dee11f4662f33118b02190693be835359a9d77}
-cert_requests:
-  - identifier: acn
-    ledger_id: ethereum
-    message_format: '{public_key}'
-    not_after: '2023-01-01'
-    not_before: '2022-01-01'
+  - uri: ${ACN_URI:str:acn.staging.autonolas.tech:9005}
     public_key: ${ACN_NODE_PUBLIC_KEY:str:02d3a830c9d6ea1ae91936951430dee11f4662f33118b02190693be835359a9d77}
-    save_path: .certs/acn_cosmos_11000.txt
+cert_requests:
+- identifier: acn
+  ledger_id: ethereum
+  message_format: '{public_key}'
+  not_after: '2023-01-01'
+  not_before: '2022-01-01'
+  public_key: ${ACN_NODE_PUBLIC_KEY:str:02d3a830c9d6ea1ae91936951430dee11f4662f33118b02190693be835359a9d77}
+  save_path: .certs/acn_cosmos_11000.txt
