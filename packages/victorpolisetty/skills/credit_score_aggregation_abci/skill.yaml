@@ -7,13 +7,13 @@ license: Apache-2.0
 aea_version: '>=1.0.0, <2.0.0'
 fingerprint:
   __init__.py: bafybeihbipiqxx4c5msglzwgvzszwqgmn2gnxjp4zwmstuqb2smde5q6om
-  behaviours.py: bafybeic5tpcyud7p57ajpsopbi2f2bgu3lgnsrvizr4h5owfeebjsfod5u
+  behaviours.py: bafybeigmffg2mconu5dgypjs7mprzbw3i6hnqf6k276isclharw5dtigri
   dialogues.py: bafybeiclt3h6e3lfhi2sdsf7gdhgx36q3racic3n2pnc7ywercs54wwiaq
-  fsm_specification.yaml: bafybeiefy37ylqq3jpxteuncnxnzdkwg7livemmvekecefo2kkd5tzsukq
+  fsm_specification.yaml: bafybeigkttol5gyapbztim4x4l2pe63omexowdcxflgmq6zro5lzltkhom
   handlers.py: bafybeictmebvwd742kqwoyrfyrwh7jmxrfifxfc53i46wappykf5ql6v2i
-  models.py: bafybeidbvien6s42y5xobzi3va64naj5z55g3ljpguogwscbvyk5gb4mbm
-  payloads.py: bafybeia5vmj7g6yq2dcdb2vrpk6cflssurkxfcqo43oaowrp7crbefndxy
-  rounds.py: bafybeidy5yeujhokl6edqc4hdx3m3m5knyaohzpj5asmop4vkkt4tagrau
+  models.py: bafybeicvjxlanmffcm2f4lacxyj44ei2n7fysfucemjuqnnsx4ihztdb7m
+  payloads.py: bafybeiht3xomkc5snue3goiyta3huinnqqskqc4qvtmgcju5qikngkista
+  rounds.py: bafybeiblzo5bcp22cbv5dje7po2cyofhfidd6y6bi2555cskhs2b5oozbq
 fingerprint_ignore_patterns: []
 connections: []
 contracts: []
@@ -103,7 +103,7 @@ models:
       retry_attempts: 400
       retry_timeout: 3
       round_timeout_seconds: 30.0
-      service_id: demo
+      service_id: alprina
       service_registry_address: null
       setup:
         all_participants:
@@ -118,9 +118,36 @@ models:
       tendermint_p2p_url: localhost:26656
       tendermint_url: http://localhost:26657
       tx_timeout: 10.0
+      use_termination: false
       validate_timeout: 1205
+      task_deadline: 240.0
+      api_keys_json: []
+      polling_interval: 30.0
+      agent_index: 0
+      num_agents: 1
+      from_block_range: 5000
+      timeout_limit: 3
+      max_block_window: 500
+      use_slashing: false
+      slash_cooldown_hours: 3
+      slash_threshold_amount: 10000000000000000
+      light_slash_unit_amount: 5000000000000000
+      serious_slash_unit_amount: 8000000000000000
       service_endpoint_base: https://demo.staging.autonolas.tech/
     class_name: Params
+  talent_protocol_score_response:
+    args:
+      api_id: talent_protocol_score_response
+      headers:
+        Content-Type: application/json
+        X-API-KEY: null
+      method: GET
+      parameters: {}
+      response_key: null
+      response_type: dict
+      retries: 5
+      url: https://api.talentprotocol.com/api/v2/passports/1121510
+    class_name: TalentProtocolScoreResponseSpecs
   requests:
     args: {}
     class_name: Requests

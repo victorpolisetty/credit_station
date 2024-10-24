@@ -24,7 +24,7 @@ from typing import Dict, FrozenSet, Optional, Set
 
 from packages.victorpolisetty.skills.credit_score_aggregation_abci.payloads import (
     HelloPayload,
-    CollectAlpacaHistoricalDataPayload
+    CollectTalentProtocolScorePayload
 )
 from packages.valory.skills.abstract_round_abci.base import (
     AbciApp,
@@ -71,12 +71,12 @@ class SynchronizedData(BaseSynchronizedData):
         return self._get_deserialized("participant_to_hello_round")
 
     @property
-    def search_alpaca_historical_data(self) -> Optional[str]:
+    def search_talent_protocol_score(self) -> Optional[str]:
         """Get the hello_data."""
         return self.db.get("hello_data", None)
 
     @property
-    def participant_to_alpaca_historical_data_round(self) -> DeserializedCollection:
+    def participant_to_talent_protocol_score_round(self) -> DeserializedCollection:
         """Get the participants to the hello round."""
         return self._get_deserialized("participant_to_hello_round")
 
@@ -94,15 +94,15 @@ class HelloRound(CollectSameUntilThresholdRound):
     # Event.ROUND_TIMEOUT  # this needs to be mentioned for static checkers
 
 
-class CollectAlpacaHistoricalDataRound(CollectSameUntilThresholdRound):
-    """CollectAlpacaHistoricalDataRound"""
+class CollectTalentProtocolScoreRound(CollectSameUntilThresholdRound):
+    """CollectTalentProtocolScoreRound"""
 
-    payload_class = CollectAlpacaHistoricalDataPayload
+    payload_class = CollectTalentProtocolScorePayload
     synchronized_data_class = SynchronizedData
     done_event = Event.DONE
     no_majority_event = Event.NO_MAJORITY
-    collection_key = get_name(SynchronizedData.search_alpaca_historical_data)
-    selection_key = get_name(SynchronizedData.participant_to_alpaca_historical_data_round)
+    collection_key = get_name(SynchronizedData.search_talent_protocol_score)
+    selection_key = get_name(SynchronizedData.participant_to_talent_protocol_score_round)
 
 
 class FinishedHelloRound(DegenerateRound):
@@ -120,11 +120,11 @@ class CreditScoreAggregationAbciApp(AbciApp[Event]):
         HelloRound: {
             Event.NO_MAJORITY: HelloRound,
             Event.ROUND_TIMEOUT: HelloRound,
-            Event.DONE: CollectAlpacaHistoricalDataRound,
+            Event.DONE: CollectTalentProtocolScoreRound,
         },
-        CollectAlpacaHistoricalDataRound: {
-            Event.NO_MAJORITY: CollectAlpacaHistoricalDataRound,
-            Event.ROUND_TIMEOUT: CollectAlpacaHistoricalDataRound,
+        CollectTalentProtocolScoreRound: {
+            Event.NO_MAJORITY: CollectTalentProtocolScoreRound,
+            Event.ROUND_TIMEOUT: CollectTalentProtocolScoreRound,
             Event.DONE: FinishedHelloRound,
         },
         FinishedHelloRound: {},

@@ -23,6 +23,9 @@ from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import
 from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import SharedState as BaseSharedState
 from packages.victorpolisetty.skills.credit_score_aggregation_abci.rounds import Event as HelloEvent
 from packages.victorpolisetty.skills.credit_score_abci.composition import CreditScoreSkillAbciApp
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import (
+    TalentProtocolScoreResponseSpecs as CreditTalentProtocolScoreResponseSpecs
+)
 from packages.valory.skills.abstract_round_abci.models import (
     BenchmarkTool as BaseBenchmarkTool,
 )
@@ -35,6 +38,7 @@ from packages.valory.skills.termination_abci.models import TerminationParams
 
 Requests = BaseRequests
 BenchmarkTool = BaseBenchmarkTool
+TalentProtocolScoreResponseSpecs = CreditTalentProtocolScoreResponseSpecs
 
 RandomnessApi = BaseRandomnessApi
 
@@ -65,7 +69,7 @@ class SharedState(BaseSharedState):
 
 
 class Params(  # pylint: disable=too-many-ancestors
-    TerminationParams,
     StockDataApiParams,
+    TerminationParams,
 ):
     """A model to represent params for multiple abci apps."""

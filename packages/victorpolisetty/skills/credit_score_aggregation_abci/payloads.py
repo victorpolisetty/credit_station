@@ -32,7 +32,7 @@ class HelloPayload(BaseTxPayload):
 
 
 @dataclass(frozen=True)
-class CollectAlpacaHistoricalDataPayload(BaseTxPayload):
-    """Represent a transaction payload for the CollectAlpacaHistoricalDataRound."""
+class CollectTalentProtocolScorePayload(BaseTxPayload):
+    """Represent a transaction payload for the CollectTalentProtocolScoreRound."""
 
     content: str

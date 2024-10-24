@@ -22,21 +22,21 @@
 from abc import ABC
 from typing import Generator, Set, Type, cast
 
-from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import Params, SharedState
-from packages.victorpolisetty.skills.credit_score_aggregation_abci.payloads import (
-    HelloPayload,
-    CollectAlpacaHistoricalDataPayload,
-)
-from packages.victorpolisetty.skills.credit_score_aggregation_abci.rounds import (
-    CreditScoreAggregationAbciApp,
-    HelloRound,
-    CollectAlpacaHistoricalDataRound,
-    SynchronizedData,
-)
 from packages.valory.skills.abstract_round_abci.base import AbstractRound
 from packages.valory.skills.abstract_round_abci.behaviours import (
     AbstractRoundBehaviour,
     BaseBehaviour,
+)
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.models import Params, SharedState
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.payloads import (
+    HelloPayload,
+    CollectTalentProtocolScorePayload,
+)
+from packages.victorpolisetty.skills.credit_score_aggregation_abci.rounds import (
+    CreditScoreAggregationAbciApp,
+    HelloRound,
+    CollectTalentProtocolScoreRound,
+    SynchronizedData,
 )
 
 
@@ -79,26 +79,79 @@ class HelloBehaviour(HelloBaseBehaviour):  # pylint: disable=too-many-ancestors
 
         self.set_done()
 
+class CollectTalentProtocolScoreBehaviour(HelloBaseBehaviour):  # pylint: disable=too-many-ancestors
+    """Behaviour to observe and collect Talent Protocol score."""
 
-class CollectAlpacaHistoricalDataBehaviour(HelloBaseBehaviour):  # pylint: disable=too-many-ancestors
-    """Behaviour to request URLs from search engine"""
-
-    matching_round: Type[AbstractRound] = CollectAlpacaHistoricalDataRound
+    matching_round = CollectTalentProtocolScoreRound
 
     def async_act(self) -> Generator:
-        """Do the act, supporting asynchronous execution."""
+        """
+        Do the action.
 
+        Steps:
+        - Ask the configured API for historical stock price data.
+        - If the request fails, retry until max retries are exceeded.
+        - Send an observation transaction and wait for it to be mined.
+        - Wait until ABCI application transitions to the next round.
+        - Go to the next behaviour (set done event).
+        """
+
+        # Check if maximum retries have been exceeded
+        if self.context.talent_protocol_score_response.is_retries_exceeded():
+            # Wait to see if other agents can progress the round, otherwise restart
+            with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
+                yield from self.wait_until_round_end()
+            self.set_done()
+            return
+
+        # Measure the local execution time of the HTTP request
         with self.context.benchmark_tool.measure(self.behaviour_id).local():
-            sender = self.context.agent_address
-            shout_data = self.synchronized_data.hello_data
-            payload_content = "Shouting: " + shout_data
-            self.context.logger.info(payload_content)
-            payload = CollectAlpacaHistoricalDataPayload(sender=sender, content=payload_content)
+            # Prepare API request specifications
+            api_specs = self.context.talent_protocol_score_response.get_spec()
 
-        with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
-            yield from self.send_a2a_transaction(payload)
-            yield from self.wait_until_round_end()
-        self.set_done()
+            # Make the asynchronous HTTP request to the Talent Protocol API
+            response = yield from self.get_http_response(
+                method=api_specs["method"],
+                url=api_specs["url"],
+                headers=api_specs["headers"],
+                parameters=api_specs["parameters"],
+            )
+
+            # Process the API response
+            talent_protocol_score = self.context.talent_protocol_score_response.process_response(response)
+
+        # Handle the API response
+        if talent_protocol_score:
+            self.context.logger.info(
+                f"Got talent_protocol_score from {self.context.talent_protocol_score_response.api_id}: {talent_protocol_score}"
+            )
+            payload = CollectTalentProtocolScorePayload(
+                self.context.agent_address, talent_protocol_score
+            )
+
+            # Send a transaction to the ABCI application and wait for the round to end
+            with self.context.benchmark_tool.measure(self.behaviour_id).consensus():
+                yield from self.send_a2a_transaction(payload)
+                yield from self.wait_until_round_end()
+            self.set_done()
+        else:
+            self.context.logger.info(
+                f"Could not get talent_protcol_score from {self.context.talent_protocol_score_response.api_id}"
+            )
+
+            # Wait before retrying
+            yield from self.sleep(
+                self.context.talent_protocol_score_response.retries_info.suggested_sleep_time
+            )
+            self.context.talent_protocol_score_response.increment_retries()
+
+    def clean_up(self) -> None:
+        """
+        Clean up resources due to a 'stop' event.
+
+        Reset retries or perform other necessary cleanup.
+        """
+        self.context.talent_protocol_score_response.reset_retries()
 
 
 class CreditScoreAggregationRoundBehaviour(AbstractRoundBehaviour):
@@ -108,5 +161,5 @@ class CreditScoreAggregationRoundBehaviour(AbstractRoundBehaviour):
     abci_app_cls = CreditScoreAggregationAbciApp  # type: ignore
     behaviours: Set[Type[BaseBehaviour]] = [  # type: ignore
         HelloBehaviour,
-        CollectAlpacaHistoricalDataBehaviour
+        CollectTalentProtocolScoreBehaviour
     ]

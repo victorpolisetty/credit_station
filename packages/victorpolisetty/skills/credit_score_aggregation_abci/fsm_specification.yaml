@@ -10,12 +10,12 @@ start_states:
   - HelloRound
 states:
   - HelloRound
-  - CollectAlpacaHistoricalDataRound
+  - CollectTalentProtocolScoreRound
   - FinishedHelloRound
 transition_func:
-  (HelloRound, DONE): CollectAlpacaHistoricalDataRound
+  (HelloRound, DONE): CollectTalentProtocolScoreRound
   (HelloRound, NO_MAJORITY): HelloRound
   (HelloRound, ROUND_TIMEOUT): HelloRound
-  (CollectAlpacaHistoricalDataRound, DONE): FinishedHelloRound
-  (CollectAlpacaHistoricalDataRound, NO_MAJORITY): CollectAlpacaHistoricalDataRound
-  (CollectAlpacaHistoricalDataRound, ROUND_TIMEOUT): CollectAlpacaHistoricalDataRound
+  (CollectTalentProtocolScoreRound, DONE): FinishedHelloRound
+  (CollectTalentProtocolScoreRound, NO_MAJORITY): CollectTalentProtocolScoreRound
+  (CollectTalentProtocolScoreRound, ROUND_TIMEOUT): CollectTalentProtocolScoreRound

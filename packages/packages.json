@@ -1,9 +1,9 @@
 {
     "dev": {
-        "skill/victorpolisetty/credit_score_aggregation_abci/0.1.0": "bafybeieg63aasezcppijkponeljij5rawcqa7jite6hwfjxxjp7ljs4gau",
-        "skill/victorpolisetty/credit_score_abci/0.1.0": "bafybeifs7fqpczf55beirk7cjbibaeod3ssz2x7gmioqmcmh56emdzdxpi",
-        "agent/victorpolisetty/credit_score_agent/0.1.0": "bafybeih2r67y5fmbuf7p3aqerlujxsepitcuhdchxzsvqbaqntrkasthhq",
-        "service/victorpolisetty/credit_score_service/0.1.0": "bafybeicea7ppijmx66aaeprszaezugwhbcvq6dabnodos5lxthgk7jgqzi"
+        "skill/victorpolisetty/credit_score_aggregation_abci/0.1.0": "bafybeicejfodnb6fknoz6xiuseygemm2dgbytxubt4k4wyxualh3rueboa",
+        "skill/victorpolisetty/credit_score_abci/0.1.0": "bafybeiftajptcnv52qvfjhm3fveeaeecbc6hrcv4rbuq6kx2t6ufh44sd4",
+        "agent/victorpolisetty/credit_score_agent/0.1.0": "bafybeifpu22jhczm72jdl5of5wywenkp5cdjfwbodn65nncw2gfveoqo3m",
+        "service/victorpolisetty/credit_score_service/0.1.0": "bafybeidvfdvafj4gvtumret64wvfmment2qg7r6eegotk37bqpnjvzi75m"
     },
     "third_party": {
         "protocol/open_aea/signing/1.0.0": "bafybeihv62fim3wl2bayavfcg3u5e5cxu3b7brtu4cn5xoxd6lqwachasi",
