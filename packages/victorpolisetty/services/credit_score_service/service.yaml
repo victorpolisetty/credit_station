@@ -6,7 +6,7 @@ aea_version: '>=1.0.0, <2.0.0'
 license: Apache-2.0
 fingerprint: {}
 fingerprint_ignore_patterns: []
-agent: victorpolisetty/credit_score_agent:0.1.0:bafybeifpu22jhczm72jdl5of5wywenkp5cdjfwbodn65nncw2gfveoqo3m
+agent: victorpolisetty/credit_score_agent:0.1.0:bafybeibaqpc5e4q3hkv4cnokaomcbfvjrmdpbsur6rz3ofijmaz7aymmgm
 number_of_agents: 1
 deployment:
   agent:
