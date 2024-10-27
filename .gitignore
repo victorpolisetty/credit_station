@@ -12,9 +12,9 @@ leak_report
 /Pipfile.lock
 keys.json
 ethereum_private_key.txt
-alprina_agent
+credit_score_agent
 !packages/victorpolisetty/agents/credit_score_agent/
-alprina_service
+credit_score_service
 !packages/victorpolisetty/services/credit_score_service/
 __pycache__/
 .env
